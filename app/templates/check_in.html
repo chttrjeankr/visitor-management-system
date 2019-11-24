@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Check In</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <h3>Visitor Details</h3>
+        <p>
+            {{ form.v_name.label }}<br>
+            {{ form.v_name }}<br>
+            {% for error in form.v_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.v_email.label }}<br>
+            {{ form.v_email }}<br>
+            {% for error in form.v_email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.v_phone.label }}<br>
+            {{ form.v_phone }}<br>
+            {% for error in form.v_phone.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <br>
+        <h3>Host Details</h3>
+        <p>
+            {{ form.h_name.label }}<br>
+            {{ form.h_name }}<br>
+            {% for error in form.h_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.h_email.label }}<br>
+            {{ form.h_email }}<br>
+            {% for error in form.h_email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.h_phone.label }}<br>
+            {{ form.h_phone }}<br>
+            {% for error in form.h_phone.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address }}<br>
+            {% for error in form.address.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <br>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

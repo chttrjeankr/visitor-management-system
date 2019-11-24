@@ -1,0 +1,23 @@
+<html>
+    <head>
+        {% if title %}
+        <title>VISITOR PORTAL - {{ title }}</title>
+        {% else %}
+        <title>VISITOR PORTAL</title>
+        {% endif %}
+    </head>
+    <body>
+        <h1>Check In/Out Portal</h1>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
