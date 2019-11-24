@@ -1,4 +1,4 @@
-## Run these following commands to get a demo of CLI
+## Run these following commands to get a demo
 
 - `sudo service mongod start`
 - `sudo service mongod status`
