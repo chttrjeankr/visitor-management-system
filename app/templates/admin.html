@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>ADMIN</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.admin_id.label }}<br>
+            {{ form.admin_id }}<br>
+            {% for error in form.admin_id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <br>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

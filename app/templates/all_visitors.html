@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Visitor List</h1>
+    <form action="" method="post" novalidate>
+        {% if data %}
+        <ul>
+            {% for each_entry in data %}
+            <li>{{ each_entry }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <br>
+    </form>
+{% endblock %}

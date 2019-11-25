@@ -35,3 +35,13 @@ def update_time_in_database(uid, check_times):
             { "check_times": check_times }
         },
         )
+
+def view_database(admin_id):
+    import os
+    from dotenv import load_dotenv
+    load_dotenv()
+
+    if admin_id == os.getenv("ADMIN_AID"):
+        return [str(post) for post in collection.find()]
+
+    return False

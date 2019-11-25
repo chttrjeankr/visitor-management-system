@@ -1,12 +1,25 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import CheckInForm, CheckOutForm
+from app.forms import CheckInForm, CheckOutForm, AdminForm
 import logic.data_work as dw
+from logic.database import view_database
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html', title='Home')
+
+@app.route('/admin',methods=['GET','POST'])
+def admin():
+    form = AdminForm()
+    if form.validate_on_submit():
+        data = view_database(form.admin_id.data)
+        if data:
+            return render_template('all_visitors.html', title='All Visitors', data=data)
+        else:
+            flash('Wrong admin ID')
+            return redirect(url_for('index'))
+    return render_template('admin.html', title='Admin', form=form)
 
 @app.route('/check_in',methods=['GET','POST'])
 def check_in():

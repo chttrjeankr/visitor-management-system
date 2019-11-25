@@ -15,3 +15,7 @@ class CheckInForm(FlaskForm):
 class CheckOutForm(FlaskForm):
     timestamp = IntegerField('Enter Check-In ID', validators=[DataRequired()])
     submit = SubmitField('Check Out')
+
+class AdminForm(FlaskForm):
+    admin_id = StringField('ADMIN key',validators=[DataRequired()])
+    submit = SubmitField('Submit')
